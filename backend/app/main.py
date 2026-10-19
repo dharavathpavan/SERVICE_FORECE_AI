@@ -1,8 +1,11 @@
 import time
 import uuid
+import os
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.core.config import settings
 from app.core.database import engine, Base
@@ -77,11 +80,18 @@ app.include_router(audit_router, prefix=settings.API_V1_STR)
 app.include_router(voice_router, prefix=settings.API_V1_STR)
 
 
-@app.get("/")
-def root_endpoint():
-    return {
-        "name": settings.PROJECT_NAME,
-        "version": settings.VERSION,
-        "docs": f"{settings.API_V1_STR}/docs",
-        "status": "online"
-    }
+# Serve the Flutter web build if it was bundled into the image (Render deploy).
+# In local dev the directory is absent and the API-only root endpoint is used.
+_static_dir = os.environ.get("STATIC_DIR", "/app/static")
+if os.path.isdir(_static_dir):
+    app.mount("/", StaticFiles(directory=_static_dir, html=True), name="static")
+else:
+
+    @app.get("/")
+    def root_endpoint():
+        return {
+            "name": settings.PROJECT_NAME,
+            "version": settings.VERSION,
+            "docs": f"{settings.API_V1_STR}/docs",
+            "status": "online",
+        }
