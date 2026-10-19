@@ -114,8 +114,30 @@ class _AppShellState extends ConsumerState<AppShell> {
   Widget build(BuildContext context) {
     final AppPalette p = context.palette;
     final double width = MediaQuery.sizeOf(context).width;
-    final bool narrow = width < 1000;
+    final bool narrow = width < 760;
     final bool effectiveCollapsed = _collapsed || width < 760;
+
+    // Mobile: bottom navigation bar per PRD §4 (Home, Agents, Calls, Contacts, Settings).
+    if (narrow) {
+      return Scaffold(
+        backgroundColor: p.background,
+        body: Column(
+          children: <Widget>[
+            _TopBar(onMenu: null),
+            Divider(height: 1, color: p.outline),
+            Expanded(
+              child: SelectionArea(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(AppSpacing.md),
+                  child: widget.child,
+                ),
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: _MobileBottomNav(location: widget.location),
+      );
+    }
 
     return Scaffold(
       backgroundColor: p.background,
@@ -193,6 +215,55 @@ class _AppShellState extends ConsumerState<AppShell> {
       ),
     );
   }
+}
+
+/// Mobile bottom navigation per PRD §4: Home, Agents, Calls, Contacts, Settings.
+class _MobileBottomNav extends StatelessWidget {
+  const _MobileBottomNav({required this.location});
+
+  final String location;
+
+  static const List<_MobileNavItem> _items = <_MobileNavItem>[
+    _MobileNavItem('Home', Icons.dashboard_outlined, '/app'),
+    _MobileNavItem('Agents', Icons.smart_toy_outlined, '/app/agents'),
+    _MobileNavItem('Calls', Icons.call_outlined, '/app/calls'),
+    _MobileNavItem('Contacts', Icons.contacts_outlined, '/app/contacts'),
+    _MobileNavItem('Settings', Icons.settings_outlined, '/app/settings'),
+  ];
+
+  int get _selectedIndex {
+    if (location.startsWith('/app/agents')) return 1;
+    if (location.startsWith('/app/calls')) return 2;
+    if (location.startsWith('/app/contacts')) return 3;
+    if (location.startsWith('/app/settings')) return 4;
+    return 0;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final AppPalette p = context.palette;
+    return NavigationBar(
+      selectedIndex: _selectedIndex,
+      onDestinationSelected: (int i) => context.go(_items[i].route),
+      backgroundColor: p.surface,
+      indicatorColor: p.accent.withValues(alpha: 0.15),
+      destinations: <NavigationDestination>[
+        for (final _MobileNavItem item in _items)
+          NavigationDestination(
+            icon: Icon(item.icon, color: p.textSecondary),
+            selectedIcon: Icon(item.icon, color: p.accent),
+            label: item.label,
+          ),
+      ],
+    );
+  }
+}
+
+class _MobileNavItem {
+  const _MobileNavItem(this.label, this.icon, this.route);
+  final String label;
+  final IconData icon;
+  final String route;
 }
 
 class _Sidebar extends ConsumerWidget {
