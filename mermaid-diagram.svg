@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2869.5639999999994 555" width="2869.5639999999994" height="555" style="--bg:#1F1F1F;--fg:#CCCCCC;--line:#CCCCCC;--accent:#0078D4;--muted:#CCCCCCCC;--surface:#181818;--border:#CCCCCC;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="ClientLayer" data-label="Frontend (React / Vite / TypeScript / Tailwind / Shadcn UI)">
+  <rect x="47.409999999999854" y="40" width="2774.7439999999997" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="47.409999999999854" y="40" width="2774.7439999999997" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="59.409999999999854" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Frontend (React / Vite / TypeScript / Tailwind / Shadcn UI)</text>
+</g>
+<g class="subgraph" data-id="APILayer" data-label="Backend (FastAPI / Pydantic / SQLAlchemy 2 / Alembic)">
+  <rect x="40" y="253.20000000000002" width="2789.5639999999994" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="253.20000000000002" width="2789.5639999999994" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="52" y="267.20000000000005" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Backend (FastAPI / Pydantic / SQLAlchemy 2 / Alembic)</text>
+</g>
+<g class="subgraph" data-id="ExternalAndStorage" data-label="Data &amp; Hardware Providers">
+  <rect x="642.877" y="404.1" width="1560.8389999999997" height="110.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="642.877" y="404.1" width="1560.8389999999997" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="654.877" y="418.1" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Data &amp; Hardware Providers</text>
+</g>
+<polyline class="edge" data-from="ClientLayer" data-to="APILayer" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="REST / WebSocket" points="1434.7819999999997,136.9 1434.7819999999997,253.20000000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="APILayer" data-to="DB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="504.92733333333325,350.1 504.92733333333325,386.1 809.1564999999998,386.1 809.1564999999999,448.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="APILayer" data-to="RedisCache" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="969.8546666666665,350.1 969.8546666666665,386.1 1085.475,386.1 1085.475,448.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="APILayer" data-to="GeminiAPI" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1434.7819999999997,350.1 1434.7819999999997,386.1 1361.7934999999998,386.1 1361.7934999999998,448.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="APILayer" data-to="AsteriskSIP" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1899.709333333333,350.1 1899.709333333333,386.1 1722.5859999999998,386.1 1722.5859999999998,448.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="APILayer" data-to="Webhooks" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="2364.6366666666663,350.1 2364.6366666666663,386.1 2060.4075,386.1 2060.4075,448.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="ClientLayer" data-to="APILayer" data-label="REST / WebSocket">
+  <rect x="1381.2819999999997" y="179.9" width="106.75" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1434.6569999999997" y="195.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">REST / WebSocket</text>
+</g>
+<g class="node" data-id="Marketing" data-label="Public Marketing &amp; Docs (/features, /pricing, /docs)" data-shape="rectangle">
+  <rect x="494.2269999999998" y="84" width="335.3859999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="661.9199999999997" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Public Marketing &amp; Docs (/features, /pricing, /docs)</text>
+</g>
+<g class="node" data-id="AuthUI" data-label="Auth &amp; Onboarding (/login, /signup, /app)" data-shape="rectangle">
+  <rect x="1551.7809999999997" y="84" width="271.65999999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1687.6109999999996" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Auth &amp; Onboarding (/login, /signup, /app)</text>
+</g>
+<g class="node" data-id="Dashboard" data-label="SaaS Dashboard &amp; Analytics (/app/dashboard, /app/analytics)" data-shape="rectangle">
+  <rect x="63.409999999999854" y="84" width="402.8169999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="264.8184999999998" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">SaaS Dashboard &amp; Analytics (/app/dashboard, /app/analytics)</text>
+</g>
+<g class="node" data-id="AgentBuilder" data-label="Agent Studio &amp; Voice Playground (/app/agents/:id)" data-shape="rectangle">
+  <rect x="2153.3239999999996" y="84" width="329.45799999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="2318.0529999999994" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Agent Studio &amp; Voice Playground (/app/agents/:id)</text>
+</g>
+<g class="node" data-id="KBStudio" data-label="RAG Knowledge Studio (/app/knowledge/:id)" data-shape="rectangle">
+  <rect x="2510.7819999999992" y="84" width="295.37199999999996" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="2658.4679999999994" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">RAG Knowledge Studio (/app/knowledge/:id)</text>
+</g>
+<g class="node" data-id="TelephonyUI" data-label="Phone Connections &amp; Gateways (/app/phone-numbers)" data-shape="rectangle">
+  <rect x="857.6129999999997" y="84" width="358.35699999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1036.7914999999998" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Phone Connections &amp; Gateways (/app/phone-numbers)</text>
+</g>
+<g class="node" data-id="LiveCalls" data-label="Call History &amp; Live Monitor (/app/calls/:id)" data-shape="rectangle">
+  <rect x="1243.9699999999996" y="84" width="279.8109999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1383.8754999999996" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Call History &amp; Live Monitor (/app/calls/:id)</text>
+</g>
+<g class="node" data-id="CampaignUI" data-label="Campaigns &amp; Contacts (/app/campaigns)" data-shape="rectangle">
+  <rect x="1851.4409999999996" y="84" width="273.8829999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1988.3824999999995" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Campaigns &amp; Contacts (/app/campaigns)</text>
+</g>
+<g class="node" data-id="AuthSvc" data-label="Auth &amp; Tenant RBAC (Owner/Admin/Manager/Operator)" data-shape="rectangle">
+  <rect x="415.681" y="297.20000000000005" width="362.0619999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="596.712" y="315.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Auth &amp; Tenant RBAC (Owner/Admin/Manager/Operator)</text>
+</g>
+<g class="node" data-id="AgentSvc" data-label="Agent Versioning &amp; Prompt Engine" data-shape="rectangle">
+  <rect x="1531.0329999999997" y="297.20000000000005" width="240.53799999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1651.3019999999997" y="315.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Agent Versioning &amp; Prompt Engine</text>
+</g>
+<g class="node" data-id="RAGSvc" data-label="Vector Embeddings &amp; Semantic Search (pgvector)" data-shape="rectangle">
+  <rect x="56" y="297.20000000000005" width="331.6809999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="221.84049999999996" y="315.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Vector Embeddings &amp; Semantic Search (pgvector)</text>
+</g>
+<g class="node" data-id="ToolRouter" data-label="Live Data Tool Router (SSRF-guarded, typed schemas)" data-shape="rectangle">
+  <rect x="2127.3889999999997" y="297.20000000000005" width="361.3209999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="2308.0494999999996" y="315.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Live Data Tool Router (SSRF-guarded, typed schemas)</text>
+</g>
+<g class="node" data-id="CallEngine" data-label="Voice Conversation Engine &amp; State Machine" data-shape="rectangle">
+  <rect x="2516.7099999999996" y="297.20000000000005" width="296.854" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="2665.1369999999997" y="315.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Voice Conversation Engine &amp; State Machine</text>
+</g>
+<g class="node" data-id="TelephonySvc" data-label="Telephony Gateway &amp; Media Adapter Interface" data-shape="rectangle">
+  <rect x="805.7429999999997" y="297.20000000000005" width="310.19199999999995" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="960.8389999999997" y="315.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Telephony Gateway &amp; Media Adapter Interface</text>
+</g>
+<g class="node" data-id="CampaignSvc" data-label="Outbound Campaign Scheduler &amp; Calling-Hours Engine" data-shape="rectangle">
+  <rect x="1143.9349999999997" y="297.20000000000005" width="359.0979999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1323.4839999999997" y="315.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Outbound Campaign Scheduler &amp; Calling-Hours Engine</text>
+</g>
+<g class="node" data-id="AuditBilling" data-label="Audit Log, Webhook Signer &amp; Metered Billing" data-shape="rectangle">
+  <rect x="1799.5709999999997" y="297.20000000000005" width="299.8179999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1949.4799999999996" y="315.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Audit Log, Webhook Signer &amp; Metered Billing</text>
+</g>
+<g class="node" data-id="DB" data-label="PostgreSQL + pgvector / SQLite test adapter" data-shape="cylinder">
+  <rect x="658.877" y="455.1" width="300.5589999999999" height="36.900000000000006" fill="var(--_node-fill)" stroke="none" />
+  <line x1="658.877" y1="455.1" x2="658.877" y2="492" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <line x1="959.4359999999999" y1="455.1" x2="959.4359999999999" y2="492" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <ellipse cx="809.1564999999999" cy="492" rx="150.27949999999996" ry="7" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <ellipse cx="809.1564999999999" cy="455.1" rx="150.27949999999996" ry="7" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="809.1564999999999" y="473.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">PostgreSQL + pgvector / SQLite test adapter</text>
+</g>
+<g class="node" data-id="RedisCache" data-label="Redis Queue &amp; Fast Cache" data-shape="cylinder">
+  <rect x="987.4359999999998" y="455.1" width="196.078" height="36.900000000000006" fill="var(--_node-fill)" stroke="none" />
+  <line x1="987.4359999999998" y1="455.1" x2="987.4359999999998" y2="492" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <line x1="1183.514" y1="455.1" x2="1183.514" y2="492" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <ellipse cx="1085.475" cy="492" rx="98.039" ry="7" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <ellipse cx="1085.475" cy="455.1" rx="98.039" ry="7" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1085.475" y="473.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Redis Queue &amp; Fast Cache</text>
+</g>
+<g class="node" data-id="GeminiAPI" data-label="Gemini Live / Text API (Streaming + Tool Use)" data-shape="rectangle">
+  <rect x="1211.514" y="448.1" width="300.55899999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1361.7934999999998" y="466.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Gemini Live / Text API (Streaming + Tool Use)</text>
+</g>
+<g class="node" data-id="AsteriskSIP" data-label="Asterisk PBX / VoLTE-GSM Gateway / Mock Telephony" data-shape="rectangle">
+  <rect x="1540.0729999999999" y="448.1" width="365.02599999999995" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1722.5859999999998" y="466.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Asterisk PBX / VoLTE-GSM Gateway / Mock Telephony</text>
+</g>
+<g class="node" data-id="Webhooks" data-label="Customer CRM / Webhook Endpoints" data-shape="rectangle">
+  <rect x="1933.0989999999997" y="448.1" width="254.61699999999996" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="2060.4075" y="466.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Customer CRM / Webhook Endpoints</text>
+</g>
+</svg>
